@@ -1,0 +1,13 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springcloud-demo?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml # MyBatis Mapper 所对应的 XML 文件位置
+  type-aliases-package: com.fancyliu.springcloud.demo.provider.model
