@@ -2,6 +2,7 @@ package com.fancyliu.springcloud.demo.provider.controller;
 
 import com.fancyliu.springcloud.demo.provider.model.Product;
 import com.fancyliu.springcloud.demo.provider.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/product")
+@Slf4j
 public class ProductController {
 
     @Autowired
@@ -25,6 +27,7 @@ public class ProductController {
 
     @GetMapping("/list")
     public List<Product> list() {
+        log.info("this is product list method....");
         return this.productService.list();
     }
 

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: service-provider
+    name: provider
   datasource:
     username: root
     password: 123456
@@ -13,7 +13,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/
+      defaultZone: http://localhost:8761/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 
