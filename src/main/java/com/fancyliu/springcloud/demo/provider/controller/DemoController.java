@@ -4,6 +4,7 @@ import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ import java.util.Map;
 @RequestMapping("/product/demo")
 @Slf4j
 public class DemoController {
+
+    @Value("${server.port}")
+    private String port;
 
     @Autowired
     private EurekaClient eurekaClient;
@@ -56,5 +60,14 @@ public class DemoController {
         }
 
         return "success";
+    }
+
+    @GetMapping("/hello")
+    public String hello(String name) {
+        String result = "This is a request from " + name + ", handled by port:" + port;
+
+        log.info(result);
+
+        return result;
     }
 }
